@@ -1,0 +1,35 @@
+spring:
+  thymeleaf:
+    templateResolverOrder: 1
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sonqo_rumi
+    username: postgres
+    password: 123456
+    initialization-mode: always
+
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: UTC
+
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        temp:
+          use_jdbc_metadata_defaults: false
+server:
+  port: 8081
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+
+app:
+  jwtSecret: .supersecret2019
+  jwtExpirationInMs: 604800000
